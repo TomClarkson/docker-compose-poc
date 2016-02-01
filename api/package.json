@@ -1,0 +1,13 @@
+{
+  "name": "dockerknexapi",
+  "version": "0.0.1",
+  "description": "dockerknexapi",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.10.2",
+    "knex": "^0.9.0",
+    "mysql": "^2.10.2",
+    "socket.io": "^1.3.6",
+    "ws": "^0.8.0"
+  }
+}

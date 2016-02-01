@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>KanjiGold.com</title>
+</head>
+<body>
+	<h1>KanjiGOLD</h1>
+	<script>
+	fetch('/api')
+		.then(r => r.json())
+		.then(u => console.log('users', u));
+	</script>
+</body>
+</html>

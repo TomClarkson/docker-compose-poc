@@ -1,0 +1,33 @@
+proxy:
+  build: proxy/
+  expose:
+    - "80"
+  links:
+    - api
+    - frontend
+  ports:
+    - "80:80"
+
+api:
+  build: api/
+  links:
+    - mysql
+  volumes:
+    - "./api/:/api/"
+  restart: always
+
+mysql:
+  environment:
+    MYSQL_DATABASE: api_db
+    MYSQL_PASSWORD: docker
+    MYSQL_ROOT_PASSWORD: docker
+    MYSQL_USER: docker
+  image: mysql
+  ports:
+    - "3306:3306"
+
+frontend:
+  build: frontend/
+  volumes:
+    - "./frontend/public:/www/data"
+    - "./frontend/nginx.conf:/etc/nginx/conf.d/default.conf"
