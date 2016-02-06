@@ -14,7 +14,7 @@ api:
   links:
     - mysql
   volumes:
-    - "./api/:/api/"
+    - "$PWD/api/:/api/"
   restart: always
 
 laravel:
@@ -38,5 +38,5 @@ mysql:
 frontend:
   build: frontend/
   volumes:
-    - "./frontend/public:/www/data"
-    - "./frontend/nginx.conf:/etc/nginx/conf.d/default.conf"
+    - "$PWD/frontend/public:/www/data"
+    - "$PWD/frontend/nginx.conf:/etc/nginx/conf.d/default.conf"
