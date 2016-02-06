@@ -5,6 +5,7 @@ proxy:
   links:
     - api
     - frontend
+    - laravel
   ports:
     - "80:80"
 
@@ -15,6 +16,14 @@ api:
   volumes:
     - "./api/:/api/"
   restart: always
+
+laravel:
+  build: laravel/
+  links:
+    - mysql
+  volumes:
+    - "$PWD/laravel/:/var/www/laravel-app/"
+    - "$PWD/laravel/apache_vhost.conf:/etc/apache2/sites-enabled/apache_vhost.conf"
 
 mysql:
   environment:
